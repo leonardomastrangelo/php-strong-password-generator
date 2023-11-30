@@ -3,9 +3,8 @@
 function generatePassword()
 {
 
-    if (isset($_GET['password_length']) && isset($_GET['repetition'])) {
+    if (isset($_GET['password_length'])) {
         $password_length = $_GET['password_length'];
-        $repetition = $_GET['repetition'];
         $new_password = '';
 
         $allowed_chars = buildAllowedChars();
@@ -13,7 +12,7 @@ function generatePassword()
         while (strlen($new_password) < $password_length) {
             $char = $allowed_chars[rand(0, strlen($allowed_chars) - 1)];
 
-            if (shouldAddCharacter($repetition, $char, $new_password)) {
+            if (shouldAddCharacter($char, $new_password)) {
                 $new_password .= $char;
             }
         }
@@ -54,12 +53,11 @@ function buildAllowedChars()
     return $allowed_chars;
 }
 
-function shouldAddCharacter($repetition, $char, $password)
+function shouldAddCharacter($char, $password)
 {
-    if ($repetition == 'si') {
-        return true;
-    } else {
-        return strpos($password, $char) === false;
+    if (isset($_GET['repetition'])) {
+        $repetition = $_GET['repetition'];
+        return ($repetition == 'si') ? true : strpos($password, $char) === false;
     }
 }
 ?>

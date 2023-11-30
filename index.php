@@ -32,6 +32,37 @@ include __DIR__ . "/partials/header.php";
                     </label>
                 </div>
             </div>
+            <div class="col-12 d-flex align-items-center py-4">
+                <div class="w-25">
+                    <h2 class="fs-5 text-center">
+                        Cosa vuoi integrare
+                    </h2>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="letters" id="letters" name="opt[]">
+                    <label class="form-check-label" for="letters">
+                        Letters
+                    </label>
+                </div>
+                <div class="form-check ms-4">
+                    <input class="form-check-input" type="checkbox" value="lettersM" id="lettersM" name="opt[]">
+                    <label class="form-check-label" for="lettersM">
+                        Letters Maiusc
+                    </label>
+                </div>
+                <div class="form-check px-5">
+                    <input class="form-check-input" type="checkbox" value="numbers" id="numbers" name="opt[]">
+                    <label class="form-check-label" for="numbers">
+                        Numbers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="characters" id="characters" name="opt[]">
+                    <label class="form-check-label" for="characters">
+                        Characters
+                    </label>
+                </div>
+            </div>
         </div>
         <button class="btn btn-primary" type="submit">Genera</button>
         <button class="btn btn-secondary" type="reset">Reset</button>
